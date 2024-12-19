@@ -4,13 +4,13 @@ export default function TagSort() {
   return (
     <div>
       <span>tag</span>
-      <label className="tagsort">
+      <label htmlFor="tagsort" className="tagsort">
         <input
           className="sort-input"
           placeholder="sort by tag"
           type="text"
-          name=""
-          id=""
+          name="tagsort"
+          id="tagsort"
         />
         <div className="drop-down">
           <FontAwesomeIcon icon={faCaretDown} />

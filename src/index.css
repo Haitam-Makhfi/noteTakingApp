@@ -34,22 +34,54 @@ h1 {
   justify-content: space-around;
   width: 50%;
 }
-.nav-btns button {
+.nav-btn {
   background-color: #111;
   color: #fff;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: bold;
-  padding: 0.5em 1em;
+  padding: 0.7em 1em;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  position: relative;
+}
+.nav-btn:hover {
+  background-color: hsla(0, 0%, 0%, 0.8);
+}
+.tag-container {
+  position: absolute;
+  left: 0;
+  top: 120%;
+  width: 10rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+.tag-container button {
+  text-align: start;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-bottom: solid 2px darkgray;
+  transition: 0.4s;
+}
+.tag-container button:last-child {
+  color: #f3f3f3;
+  background-color: #111;
+}
+.tag-container button:hover {
+  background-color: #111;
+  color: #fff;
 }
 span {
   font-size: 1.3rem;
   font-weight: bold;
   text-transform: capitalize;
 }
-label {
+.titlesort,
+.tagsort {
   display: block;
   width: 90%;
   height: auto;
