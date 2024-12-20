@@ -1,7 +1,6 @@
-import { useContext, useState } from "react";
-import { tagContext } from "../App";
+import { useState } from "react";
+import Tooltip from "./Tooltip";
 export default function Nav() {
-  const { tagArray } = useContext(tagContext);
   const [tooltipactive, setTooltipActive] = useState(false);
   return (
     <nav>
@@ -10,14 +9,7 @@ export default function Nav() {
         <div className="nav-btn">Creat</div>
         <div className="nav-btn" onClick={() => setTooltipActive((p) => !p)}>
           Edit Tags
-          {tooltipactive && (
-            <div className="tag-container">
-              {tagArray.map((tag: any) => (
-                <button key={tag}>{tag}</button>
-              ))}
-              <button>add new tag +</button>
-            </div>
-          )}
+          {tooltipactive && <Tooltip addtag={true} style={{ zIndex: "11" }} />}
         </div>
         <div className="nav-btn">darkMode</div>
       </div>

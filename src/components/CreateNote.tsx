@@ -1,8 +1,10 @@
 import { useState } from "react";
-
+import Nav from "./Nav";
+import TitleSort from "./TitleSort";
+import TagSort from "./TagSort";
 export default function CreateNote() {
   const [titleValue, setTitleValue] = useState("");
-  const [tagValue, setTagValue] = useState("");
+  const [tagValue, setTagValue] = useState([]);
   const [noteValue, setNoteValue] = useState("");
   function makePost() {
     const text = { content: noteValue };
@@ -29,33 +31,20 @@ export default function CreateNote() {
       .catch((err) => console.log(err));
   }
   return (
-    <>
-      <label htmlFor="title">
-        <input
-          type="text"
-          name="title"
-          id="title"
-          value={titleValue}
-          onChange={(e) => setTitleValue(e.target.value)}
-        />
-      </label>
-      <label htmlFor="tags">
-        <input
-          type="text"
-          name="tags"
-          id="tags"
-          value={tagValue}
-          onChange={(e) => setTagValue(e.target.value)}
-        />
-      </label>
-      <label htmlFor="note"></label>
-      <textarea
-        name="note"
-        id="note"
-        value={noteValue}
-        onChange={(e) => setNoteValue(e.target.value)}
-      ></textarea>
+    <main>
+      <Nav />
+      <TitleSort setTitleValue={setTitleValue} />
+      <TagSort setTagValue={setTagValue} />
+      <section className="note-section">
+        <label htmlFor="note"></label>
+        <textarea
+          name="note"
+          id="note"
+          value={noteValue}
+          onChange={(e) => setNoteValue(e.target.value)}
+        ></textarea>
+      </section>
       <button onClick={makePost}>save</button>
-    </>
+    </main>
   );
 }

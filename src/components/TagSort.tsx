@@ -1,20 +1,36 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-export default function TagSort() {
+import { useEffect, useState } from "react";
+import Tooltip from "./Tooltip";
+type propType = {
+  setTagValue: any;
+};
+export default function TagSort({ setTagValue }: propType) {
+  const [tooltipactive, setTooltipActive] = useState(false);
+  const [chosenTags, setChosenTags] = useState([]);
+  useEffect(() => {
+    if (setTagValue) setTagValue(chosenTags);
+  }, [chosenTags]);
   return (
     <div>
-      <span>tag</span>
+      <span className="sort-title">tag</span>
       <label htmlFor="tagsort" className="tagsort">
-        <input
-          className="sort-input"
-          placeholder="sort by tag"
-          type="text"
-          name="tagsort"
-          id="tagsort"
-        />
-        <div className="drop-down">
+        <div className="sort-input" id="tagsort">
+          {chosenTags.map((tag, index) => (
+            <span className="tags" key={index}>
+              {tag}
+            </span>
+          ))}
+        </div>
+        <div className="drop-down" onClick={() => setTooltipActive((p) => !p)}>
           <FontAwesomeIcon icon={faCaretDown} />
         </div>
+        {tooltipactive && (
+          <Tooltip
+            tagControle={{ chosenTags, setChosenTags }}
+            style={{ right: "0", left: "auto" }}
+          />
+        )}
       </label>
     </div>
   );

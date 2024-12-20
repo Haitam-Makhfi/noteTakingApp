@@ -51,7 +51,7 @@ h1 {
 .tag-container {
   position: absolute;
   left: 0;
-  top: 120%;
+  top: 110%;
   width: 10rem;
   display: flex;
   flex-direction: column;
@@ -62,20 +62,20 @@ h1 {
   padding: 0.5em 1em;
   font-size: 1rem;
   font-weight: bold;
-  cursor: pointer;
   border: none;
   border-bottom: solid 2px darkgray;
+  cursor: pointer;
   transition: 0.4s;
 }
-.tag-container button:last-child {
+.add-tag {
   color: #f3f3f3;
   background-color: #111;
+  cursor: pointer;
 }
-.tag-container button:hover {
-  background-color: #111;
-  color: #fff;
+.add-tag:hover {
+  background-color: hsla(0, 0%, 30%, 1);
 }
-span {
+.sort-title {
   font-size: 1.3rem;
   font-weight: bold;
   text-transform: capitalize;
@@ -88,12 +88,16 @@ span {
   margin-top: 0.5em;
 }
 .sort-input {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
   font-size: 1rem;
   font-weight: bold;
   padding: 0.7em;
   border: solid 2px darkgray;
   border-radius: 5px;
   width: 100%;
+  height: 44.38px;
 }
 .sort-input:focus {
   outline: none;
@@ -104,17 +108,25 @@ span {
 .drop-down {
   position: absolute;
   top: 50%;
-  right: 0;
+  right: 2px;
   border-radius: 0 5px 5px 0;
   width: 20%;
   height: 75%;
   transform: translateY(-50%);
-  border-left: solid 3px darkgray;
+  border-left: solid 2px black;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
   cursor: pointer;
 }
 .drop-down > * {
   color: #111;
+}
+.tags {
+  padding: 0.3em 0.5em;
+  background-color: rgb(240, 240, 240);
+  border-radius: 3px;
+  font-size: 0.9rem;
+  font-weight: bold;
 }
