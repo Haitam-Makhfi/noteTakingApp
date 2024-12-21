@@ -44,9 +44,15 @@ h1 {
   border-radius: 5px;
   cursor: pointer;
   position: relative;
+  transition: 0.4s;
 }
 .nav-btn:hover {
-  background-color: hsla(0, 0%, 0%, 0.8);
+  background-color: hsla(0, 0%, 0%, 0.7);
+}
+.tag-sort-container,
+.title-sort-container {
+  justify-self: center;
+  width: 98%;
 }
 .tag-container {
   position: absolute;
@@ -83,7 +89,7 @@ h1 {
 .titlesort,
 .tagsort {
   display: block;
-  width: 90%;
+  width: 100%;
   height: auto;
   margin-top: 0.5em;
 }
@@ -129,4 +135,36 @@ h1 {
   border-radius: 3px;
   font-size: 0.9rem;
   font-weight: bold;
+}
+.note-section {
+  grid-column: span 2;
+  padding-top: 1.5em;
+}
+.note-section label {
+  width: 100%;
+}
+#note {
+  width: 100%;
+  resize: none;
+  padding: 0.5em 1em;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.creat-note-btns {
+  justify-self: end;
+  grid-column: 2/-1;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.creat-note-btns > button {
+  width: 5.1em;
+  padding: 0.5em 1em;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #111;
 }

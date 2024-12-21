@@ -6,6 +6,7 @@ export default function CreateNote() {
   const [titleValue, setTitleValue] = useState("");
   const [tagValue, setTagValue] = useState([]);
   const [noteValue, setNoteValue] = useState("");
+  let id = 0;
   function makePost() {
     const text = { content: noteValue };
     fetch("https://api.apyhub.com/convert/md/html/json", {
@@ -19,7 +20,7 @@ export default function CreateNote() {
     })
       .then((res) => res.json())
       .then((data) => {
-        const payload = { data, noteValue, titleValue, tagValue }; // the tagValue might not get passed directly here
+        const payload = { data, noteValue, titleValue, tagValue, id };
         fetch("https://jsonplaceholder.typicode.com/posts", {
           method: "POST",
           headers: {
@@ -38,13 +39,17 @@ export default function CreateNote() {
       <section className="note-section">
         <label htmlFor="note"></label>
         <textarea
+          rows={12}
           name="note"
           id="note"
           value={noteValue}
           onChange={(e) => setNoteValue(e.target.value)}
         ></textarea>
       </section>
-      <button onClick={makePost}>save</button>
+      <div className="creat-note-btns">
+        <button>cancel</button>
+        <button onClick={makePost}>save</button>
+      </div>
     </main>
   );
 }

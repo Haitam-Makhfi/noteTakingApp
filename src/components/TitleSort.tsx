@@ -10,7 +10,7 @@ export default function TitleSort({ setTitleValue }: propType) {
     if (setTitleValue) setTitleValue(state);
   }, [state]);
   return (
-    <div>
+    <div className="title-sort-container">
       <span className="sort-title">title</span>
       <label htmlFor="titlesort" className="titlesort">
         <input

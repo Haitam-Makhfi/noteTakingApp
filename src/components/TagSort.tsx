@@ -12,7 +12,7 @@ export default function TagSort({ setTagValue }: propType) {
     if (setTagValue) setTagValue(chosenTags);
   }, [chosenTags]);
   return (
-    <div>
+    <div className="tag-sort-container">
       <span className="sort-title">tag</span>
       <label htmlFor="tagsort" className="tagsort">
         <div className="sort-input" id="tagsort">
