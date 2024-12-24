@@ -7,6 +7,7 @@
 }
 body {
   min-height: 100vh;
+  background-color: #f3f3f3;
 }
 main {
   width: min(100% - 80px, 60rem);
@@ -75,11 +76,11 @@ h1 {
 }
 .add-tag {
   color: #f3f3f3;
-  background-color: #111;
+  background-color: darkcyan;
   cursor: pointer;
 }
 .add-tag:hover {
-  background-color: hsla(0, 0%, 30%, 1);
+  background-color: hsla(180, 100%, 23%, 1);
 }
 .sort-title {
   font-size: 1.3rem;
@@ -104,6 +105,7 @@ h1 {
   border-radius: 5px;
   width: 100%;
   height: 44.38px;
+  background-color: #fff;
 }
 .sort-input:focus {
   outline: none;
@@ -131,20 +133,22 @@ h1 {
 }
 .tags {
   padding: 0.3em 0.5em;
-  background-color: rgb(240, 240, 240);
+  background-color: darkcyan;
+  color: #fff;
   border-radius: 3px;
   font-size: 0.9rem;
   font-weight: bold;
 }
 .note-section {
   grid-column: span 2;
-  padding-top: 1.5em;
+  padding: 1em 0;
 }
 .note-section label {
   width: 100%;
 }
 #note {
   width: 100%;
+  height: 100%;
   resize: none;
   padding: 0.5em 1em;
   font-size: 1.2rem;
@@ -167,4 +171,32 @@ h1 {
   cursor: pointer;
   color: #fff;
   background-color: #111;
+}
+.note {
+  justify-self: center;
+  width: 90%;
+  border-radius: 10px;
+  padding: 1em;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px -13px #000;
+  cursor: pointer;
+  background-color: #fff;
+  transition: 0.3s;
+}
+.note:hover {
+  box-shadow: 0 5px 15px -7px #000;
+}
+.note h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+.tags-container {
+  display: flex;
+  gap: 0.5em;
+  flex-wrap: wrap;
 }
