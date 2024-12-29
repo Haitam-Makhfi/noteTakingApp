@@ -13,7 +13,7 @@ export default function BrowsNote() {
     navigate("/");
   }
   function handleEdit(id: number) {
-    navigate(`/creatNote/${id}`);
+    navigate(`/createNote/${id}`);
   }
   return (
     <>

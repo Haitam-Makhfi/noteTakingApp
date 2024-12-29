@@ -1,14 +1,10 @@
-import { useEffect, useState } from "react";
-// import { Dispatch, SetStateAction } from "react";
+// import { useEffect, useState } from "react";
 
 interface propType {
   setTitleValue: any;
+  titleValue: string;
 }
-export default function TitleSort({ setTitleValue }: propType) {
-  const [state, setState] = useState("");
-  useEffect(() => {
-    if (setTitleValue) setTitleValue(state);
-  }, [state]);
+export default function TitleSort({ setTitleValue, titleValue }: propType) {
   return (
     <div className="title-sort-container">
       <span className="sort-title">title</span>
@@ -19,8 +15,8 @@ export default function TitleSort({ setTitleValue }: propType) {
           type="text"
           name="titlesort"
           id="titlesort"
-          value={state}
-          onChange={(e) => setState(e.target.value)}
+          value={titleValue}
+          onChange={(e) => setTitleValue(e.target.value)}
         />
       </label>
     </div>

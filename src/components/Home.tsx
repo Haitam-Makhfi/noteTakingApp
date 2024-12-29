@@ -7,11 +7,12 @@ import { notesContext } from "../App";
 function Home() {
   const { notes } = useContext(notesContext);
   // const [displayNotes, setDisplayNotes] = useState(notes);
+  const [tagValue, setTagValue] = useState([]);
   return (
     <main>
       <Nav />
       <TitleSort />
-      <TagSort />
+      <TagSort setTagValue={setTagValue} tagValue={tagValue} />
       <NotesList notes={notes} />
     </main>
   );

@@ -9,11 +9,11 @@ function App() {
   const [tagArray, setTagArray] = useState(["work", "personnel", "chopping"]);
   const [notes, setNotes] = useState([
     {
-      note: "hello world",
+      noteValue: "#EGO",
       titleValue: "title",
       id: 1,
       tagValue: ["work", "personnel"],
-      data: { data: "<h1>Ego</h1>" },
+      data: { data: "<h1>EGO</h1>" },
     },
   ]);
   const [id, setId] = useState(101);

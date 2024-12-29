@@ -12,13 +12,34 @@ export default function CreateNote({ id, setId }: { id: number; setId: any }) {
   const { notes, setNotes } = useContext(notesContext);
   const { noteId } = useParams();
   useEffect(() => {
-    notes.map((note: any) => {
-      if (note.id == JSON.parse(noteId)) {
-        setTitleValue(note.titleValue);
-        setTagValue(note.tagValue);
-        setNoteValue(note.noteValue);
-      }
-    });
+    if (noteId) {
+      notes.map(
+        (note: {
+          data: any;
+          noteValue: string;
+          titleValue: string;
+          tagValue: string[];
+          id: number;
+        }) => {
+          if (note.id == JSON.parse(noteId)) {
+            setTitleValue(note.titleValue);
+            setTagValue(note.tagValue);
+            setNoteValue(note.noteValue);
+          }
+        }
+      );
+      // setNotes(
+      //   (
+      //     n: {
+      //       data: any;
+      //       noteValue: string;
+      //       titleValue: string;
+      //       tagValue: string[];
+      //       id: number;
+      //     }[]
+      //   ) => n.filter((note) => note.id !== JSON.parse(noteId))
+      // );
+    }
   }, [noteId]);
   function makePost() {
     const text = { content: noteValue };
@@ -39,12 +60,24 @@ export default function CreateNote({ id, setId }: { id: number; setId: any }) {
         setId((p: number) => p + 1);
         navigate("/");
       });
+    noteId &&
+      setNotes(
+        (
+          n: {
+            data: any;
+            noteValue: string;
+            titleValue: string;
+            tagValue: string[];
+            id: number;
+          }[]
+        ) => n.filter((note) => note.id !== JSON.parse(noteId))
+      );
   }
   return (
     <main>
       <Nav />
-      <TitleSort setTitleValue={setTitleValue} />
-      <TagSort setTagValue={setTagValue} />
+      <TitleSort setTitleValue={setTitleValue} titleValue={titleValue} />
+      <TagSort setTagValue={setTagValue} tagValue={tagValue} />
       <section className="note-section">
         <label htmlFor="note"></label>
         <textarea

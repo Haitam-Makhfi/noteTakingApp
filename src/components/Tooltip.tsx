@@ -12,8 +12,8 @@ export default function Tooltip({
 }: propTypes) {
   const { tagArray } = useContext(tagContext);
   function handleTagClick(tag: string) {
-    if (!tagControle.chosenTags.includes(tag)) {
-      tagControle.setChosenTags((p: string[]) => [...p, tag]);
+    if (!tagControle.tagValue.includes(tag)) {
+      tagControle.setTagValue((p: string[]) => [...p, tag]);
     }
   }
   return (
