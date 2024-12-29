@@ -10,7 +10,7 @@ body {
   background-color: #f3f3f3;
 }
 main {
-  width: min(100% - 80px, 60rem);
+  width: calc(40rem - 80px);
   margin-inline: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -28,6 +28,10 @@ h1 {
   font-size: 2rem;
   font-weight: bold;
   align-items: center;
+}
+.Link {
+  text-decoration: none;
+  color: #fff;
 }
 .nav-btns {
   display: flex;
@@ -176,7 +180,7 @@ h1 {
   justify-self: center;
   width: 90%;
   border-radius: 10px;
-  padding: 1em;
+  padding: 2.5em;
   margin-top: 1em;
   display: flex;
   flex-direction: column;
@@ -199,4 +203,38 @@ h1 {
   display: flex;
   gap: 0.5em;
   flex-wrap: wrap;
+}
+.browsNote-section {
+  width: min(100% - 80px, 60rem);
+  margin-inline: auto;
+}
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+}
+.btn-container button {
+  width: 5rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #000;
+  transition: 0.3s;
+}
+.btn-container button:first-child {
+  background-color: transparent;
+  color: tomato;
+  border: solid 2px tomato;
+}
+.btn-container button:last-child:hover {
+  background-color: hsla(0, 0%, 0%, 0.7);
+}
+.btn-container button:first-child:hover {
+  background-color: tomato;
+  color: #fff;
 }

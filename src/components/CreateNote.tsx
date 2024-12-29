@@ -1,16 +1,25 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { notesContext } from "../App";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Nav from "./Nav";
 import TitleSort from "./TitleSort";
 import TagSort from "./TagSort";
-export default function CreateNote() {
+export default function CreateNote({ id, setId }: { id: number; setId: any }) {
   const [titleValue, setTitleValue] = useState("");
   const [tagValue, setTagValue] = useState([]);
   const [noteValue, setNoteValue] = useState("");
-  const [id, setId] = useState(101);
   const navigate = useNavigate();
-  const { setNotes } = useContext(notesContext);
+  const { notes, setNotes } = useContext(notesContext);
+  const { noteId } = useParams();
+  useEffect(() => {
+    notes.map((note: any) => {
+      if (note.id == JSON.parse(noteId)) {
+        setTitleValue(note.titleValue);
+        setTagValue(note.tagValue);
+        setNoteValue(note.noteValue);
+      }
+    });
+  }, [noteId]);
   function makePost() {
     const text = { content: noteValue };
     fetch("https://api.apyhub.com/convert/md/html/json", {
@@ -25,20 +34,10 @@ export default function CreateNote() {
       .then((res) => res.json())
       .then((data) => {
         const payload = { data, noteValue, titleValue, tagValue, id };
-        fetch("https://jsonplaceholder.typicode.com/posts", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json; charset=UTF-8",
-          },
-          body: JSON.stringify(payload),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            setNotes((n: any) => [...n, data]);
-            setId((p) => p + 1);
-          })
-          .then(() => navigate("/"))
-          .catch((err) => console.log(err));
+        console.log(payload);
+        setNotes((n: any) => [...n, payload]);
+        setId((p: number) => p + 1);
+        navigate("/");
       });
   }
   return (
