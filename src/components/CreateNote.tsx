@@ -28,17 +28,6 @@ export default function CreateNote({ id, setId }: { id: number; setId: any }) {
           }
         }
       );
-      // setNotes(
-      //   (
-      //     n: {
-      //       data: any;
-      //       noteValue: string;
-      //       titleValue: string;
-      //       tagValue: string[];
-      //       id: number;
-      //     }[]
-      //   ) => n.filter((note) => note.id !== JSON.parse(noteId))
-      // );
     }
   }, [noteId]);
   function makePost() {
