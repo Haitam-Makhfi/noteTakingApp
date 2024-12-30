@@ -44,8 +44,6 @@ function Home() {
     });
     return bool;
   }
-  // console.log(compareWithTagValue(["work", "personnel", "chopping"]));
-
   return (
     <main>
       <Nav />

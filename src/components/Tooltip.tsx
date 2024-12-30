@@ -27,14 +27,16 @@ export default function Tooltip({
       {tagArray.map((tag: any) => (
         <button key={tag} onClick={() => handleTagClick(tag)}>
           {tag}
-          <FontAwesomeIcon
-            icon={faXmark}
-            className="close-tag-icon"
-            onClick={(e) => {
-              e.stopPropagation();
-              setTagArray((ta: string[]) => ta.filter((el) => el !== tag));
-            }}
-          />
+          {addtag && (
+            <FontAwesomeIcon
+              icon={faXmark}
+              className="close-tag-icon"
+              onClick={(e) => {
+                e.stopPropagation();
+                setTagArray((ta: string[]) => ta.filter((el) => el !== tag));
+              }}
+            />
+          )}
         </button>
       ))}
       {addtag && (
