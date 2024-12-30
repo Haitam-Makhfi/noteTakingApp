@@ -1,5 +1,6 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { tagContext } from "../App";
+import Modal from "./Modal";
 type propTypes = {
   addtag?: boolean;
   tagControle?: any;
@@ -11,9 +12,12 @@ export default function Tooltip({
   ...props
 }: propTypes) {
   const { tagArray } = useContext(tagContext);
+  const [openModal, setOpenModal] = useState(false);
   function handleTagClick(tag: string) {
-    if (!tagControle.tagValue.includes(tag)) {
-      tagControle.setTagValue((p: string[]) => [...p, tag]);
+    if (!addtag) {
+      if (!tagControle.tagValue.includes(tag)) {
+        tagControle.setTagValue((p: string[]) => [...p, tag]);
+      }
     }
   }
   return (
@@ -23,7 +27,17 @@ export default function Tooltip({
           {tag}
         </button>
       ))}
-      {addtag && <button className="add-tag">add new tag +</button>}
+      {addtag && (
+        <button
+          className="add-tag"
+          onClick={() => {
+            setOpenModal((prev) => !prev);
+          }}
+        >
+          add new tag +
+        </button>
+      )}
+      <Modal openModal={openModal} />
     </div>
   );
 }

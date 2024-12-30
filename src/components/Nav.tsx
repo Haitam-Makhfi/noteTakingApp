@@ -12,8 +12,15 @@ export default function Nav() {
             Creat
           </Link>
         </div>
-        <div className="nav-btn" onClick={() => setTooltipActive((p) => !p)}>
-          Edit Tags
+        <div className="edit-btn-container">
+          <div
+            className="nav-btn"
+            onClick={() => {
+              setTooltipActive((p) => !p);
+            }}
+          >
+            Edit Tags
+          </div>
           {tooltipactive && <Tooltip addtag={true} style={{ zIndex: "11" }} />}
         </div>
         <div className="nav-btn">darkMode</div>
