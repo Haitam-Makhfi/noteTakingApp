@@ -34,6 +34,7 @@ h1 {
   color: #fff;
 }
 .nav-btns {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -48,7 +49,6 @@ h1 {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  position: relative;
   transition: 0.4s;
 }
 .nav-btn:hover {
@@ -58,6 +58,9 @@ h1 {
 .title-sort-container {
   justify-self: center;
   width: 98%;
+}
+.edit-btn-container {
+  position: relative;
 }
 .tag-container {
   position: absolute;
@@ -76,6 +79,9 @@ h1 {
   border: none;
   border-bottom: solid 2px darkgray;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   transition: 0.4s;
 }
 .add-tag {
@@ -237,4 +243,44 @@ h1 {
 .btn-container button:first-child:hover {
   background-color: tomato;
   color: #fff;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: hsla(0, 0%, 0%, 0.7);
+  z-index: 1000;
+}
+.new-tag-container {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: #fff;
+  padding: 2em 1.5em;
+  border-radius: 10px;
+}
+.new-tag-container label {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.new-tag-container input[type="text"] {
+  font-weight: bold;
+  border: solid 2px darkgray;
+  padding: 0.5em 0.2em;
+  border-radius: 5px;
+  margin: 0 1.5em 0 0.3em;
+}
+.new-tag-container input[type="text"]:focus {
+  outline: none;
+}
+.new-tag-container .close-icon {
+  font-size: 1.3rem;
+  cursor: pointer;
 }

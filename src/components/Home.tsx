@@ -8,10 +8,11 @@ function Home() {
   const { notes } = useContext(notesContext);
   // const [displayNotes, setDisplayNotes] = useState(notes);
   const [tagValue, setTagValue] = useState([]);
+  const [titleValue, setTitleValue] = useState("");
   return (
     <main>
       <Nav />
-      <TitleSort />
+      <TitleSort setTitleValue={setTitleValue} titleValue={titleValue} />
       <TagSort setTagValue={setTagValue} tagValue={tagValue} />
       <NotesList notes={notes} />
     </main>
