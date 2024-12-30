@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { tagContext } from "../App";
 import Modal from "./Modal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 type propTypes = {
   addtag?: boolean;
   tagControle?: any;
@@ -11,7 +13,7 @@ export default function Tooltip({
   tagControle,
   ...props
 }: propTypes) {
-  const { tagArray } = useContext(tagContext);
+  const { tagArray, setTagArray } = useContext(tagContext);
   const [openModal, setOpenModal] = useState(false);
   function handleTagClick(tag: string) {
     if (!addtag) {
@@ -25,19 +27,50 @@ export default function Tooltip({
       {tagArray.map((tag: any) => (
         <button key={tag} onClick={() => handleTagClick(tag)}>
           {tag}
+          <FontAwesomeIcon
+            icon={faXmark}
+            className="close-tag-icon"
+            onClick={(e) => {
+              e.stopPropagation();
+              setTagArray((ta: string[]) => ta.filter((el) => el !== tag));
+            }}
+          />
         </button>
       ))}
       {addtag && (
         <button
           className="add-tag"
           onClick={() => {
-            setOpenModal((prev) => !prev);
+            setOpenModal(true);
           }}
         >
           add new tag +
         </button>
       )}
-      <Modal openModal={openModal} />
+      <Modal openModal={openModal}>
+        <>
+          <div className="overlay" />
+          <div className="new-tag-container">
+            <label htmlFor="newTag">Name:</label>
+            <input
+              type="text"
+              name="newTag"
+              id="newTag"
+              onKeyDown={(e) => {
+                if (e.key == "Enter") {
+                  setTagArray((t: string[]) => [...t, e.target.value]);
+                  setOpenModal(false);
+                }
+              }}
+            />
+            <FontAwesomeIcon
+              icon={faXmark}
+              className="close-icon"
+              onClick={() => setOpenModal(false)}
+            />
+          </div>
+        </>
+      </Modal>
     </div>
   );
 }
