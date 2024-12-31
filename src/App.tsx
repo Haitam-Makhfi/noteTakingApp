@@ -3,6 +3,7 @@ import { useState, createContext } from "react";
 import Home from "./components/Home";
 import CreateNote from "./components/CreateNote";
 import BrowsNote from "./components/BrowsNote";
+import MarkdownView from "react-showdown";
 export const tagContext = createContext();
 export const notesContext = createContext();
 function App() {
@@ -13,7 +14,7 @@ function App() {
       titleValue: "title",
       id: 1,
       tagValue: ["work", "personnel"],
-      data: { data: "<h1>EGO</h1>" },
+      data: <MarkdownView markdown="#EGO" />,
     },
   ]);
   const [id, setId] = useState(101);
