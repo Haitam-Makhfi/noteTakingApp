@@ -14,7 +14,13 @@ export default function TagSort({ setTagValue, tagValue }: propType) {
       <label htmlFor="tagsort" className="tagsort">
         <div className="sort-input" id="tagsort">
           {tagValue.map((tag, index) => (
-            <span className="tags" key={index}>
+            <span
+              className="tags"
+              key={index}
+              onClick={() =>
+                setTagValue((p: string[]) => p.filter((el) => el != tag))
+              }
+            >
               {tag}
             </span>
           ))}

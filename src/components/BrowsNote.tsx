@@ -1,12 +1,10 @@
 import { useContext } from "react";
 import { notesContext } from "../App";
 import { useParams } from "react-router";
-// import { Parser } from "html-to-react";
 import { useNavigate } from "react-router";
 export default function BrowsNote() {
   const { notes, setNotes } = useContext(notesContext);
   const { noteId } = useParams();
-  // const htmlParser = new Parser();
   const navigate = useNavigate();
   function handleDelete(id: number) {
     setNotes((n: any) => n.filter((note: any) => note.id !== id));

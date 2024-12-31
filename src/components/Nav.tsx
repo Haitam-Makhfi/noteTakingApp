@@ -7,14 +7,9 @@ export default function Nav() {
     <nav>
       <h1>Clipy</h1>
       <div className="nav-btns">
-        <div className="nav-btn">
-          <Link to={"/createNote"} className="Link">
-            Creat
-          </Link>
-        </div>
         <div className="edit-btn-container">
           <div
-            className="nav-btn"
+            className="nav-btn editBtn"
             onClick={() => {
               setTooltipActive((p) => !p);
             }}
@@ -23,7 +18,11 @@ export default function Nav() {
           </div>
           {tooltipactive && <Tooltip addtag={true} style={{ zIndex: "11" }} />}
         </div>
-        <div className="nav-btn">darkMode</div>
+        <div className="nav-btn createBtn">
+          <Link to={"/createNote"} className="Link">
+            Creat
+          </Link>
+        </div>
       </div>
     </nav>
   );

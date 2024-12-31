@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 *,
 *::before,
 *::after {
@@ -8,6 +9,15 @@
 body {
   min-height: 100vh;
   background-color: #f3f3f3;
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+ul li {
+  list-style: none;
+}
+ol {
+  list-style-position: inside;
 }
 main {
   width: calc(40rem - 80px);
@@ -24,35 +34,50 @@ nav {
   padding-top: 1.5rem;
   padding-bottom: 3em;
 }
-h1 {
+nav h1 {
   font-size: 2rem;
   font-weight: bold;
   align-items: center;
 }
 .Link {
   text-decoration: none;
-  color: #fff;
+  color: inherit;
 }
 .nav-btns {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  width: 50%;
+  justify-content: space-between;
+  width: 35%;
 }
 .nav-btn {
+  height: 48px;
+  padding: 0 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #111;
-  color: #fff;
   font-size: 1rem;
   font-weight: bold;
-  padding: 0.7em 1em;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: 0.4s;
+  color: #fff;
+  transition: background-color 0.4s;
 }
-.nav-btn:hover {
+
+.editBtn:hover {
   background-color: hsla(0, 0%, 0%, 0.7);
+}
+.createBtn {
+  width: 80px;
+  color: darkcyan;
+  background-color: transparent;
+  border: solid 2px darkcyan;
+}
+.createBtn:hover {
+  background-color: darkcyan;
+  color: #fff;
 }
 .tag-sort-container,
 .title-sort-container {
@@ -64,11 +89,13 @@ h1 {
 }
 .tag-container {
   position: absolute;
-  left: 0;
+  right: 0;
   top: 110%;
   width: 10rem;
   display: flex;
   flex-direction: column;
+  border-radius: 5px;
+  overflow: hidden;
   z-index: 10;
 }
 .tag-container button {
@@ -148,6 +175,7 @@ h1 {
   border-radius: 3px;
   font-size: 0.9rem;
   font-weight: bold;
+  cursor: pointer;
 }
 .note-section {
   grid-column: span 2;
