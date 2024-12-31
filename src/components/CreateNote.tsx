@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router";
 import Nav from "./Nav";
 import TitleSort from "./TitleSort";
 import TagSort from "./TagSort";
+import MarkdownView from "react-showdown";
 export default function CreateNote({ id, setId }: { id: number; setId: any }) {
   const [titleValue, setTitleValue] = useState("");
   const [tagValue, setTagValue] = useState([]);
@@ -31,24 +32,17 @@ export default function CreateNote({ id, setId }: { id: number; setId: any }) {
     }
   }, [noteId]);
   function makePost() {
-    const text = { content: noteValue };
-    fetch("https://api.apyhub.com/convert/md/html/json", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "apy-token":
-          "APY0DO4Uvp3UBqOGBWOCHd66DAQSS8CPtEBBR190z0MMuNqXhil7mpqj0ScWvCVy",
-      },
-      body: JSON.stringify(text),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const payload = { data, noteValue, titleValue, tagValue, id };
-        console.log(payload);
-        setNotes((n: any) => [...n, payload]);
-        setId((p: number) => p + 1);
-        navigate("/");
-      });
+    const payload = {
+      data: <MarkdownView markdown={noteValue} />,
+      noteValue,
+      titleValue,
+      tagValue,
+      id,
+    };
+    console.log(payload);
+    setNotes((n: any) => [...n, payload]);
+    setId((p: number) => p + 1);
+    navigate("/");
     noteId &&
       setNotes(
         (
