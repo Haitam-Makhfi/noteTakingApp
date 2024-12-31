@@ -38,6 +38,7 @@ nav h1 {
   font-size: 2rem;
   font-weight: bold;
   align-items: center;
+  cursor: pointer;
 }
 .Link {
   text-decoration: none;
