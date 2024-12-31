@@ -10,7 +10,7 @@ function App() {
   const [tagArray, setTagArray] = useState(["work", "personnel", "chopping"]);
   const [notes, setNotes] = useState([
     {
-      noteValue: "",
+      noteValue: "example",
       titleValue: "Exp",
       id: 1,
       tagValue: ["work", "personnel"],
