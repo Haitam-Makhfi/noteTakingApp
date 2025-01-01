@@ -32,7 +32,12 @@ i learned everything from common react programing patterns to react reconsiliati
 
 ### Continued development
 
-other features that might come will be: - saving notes in local storage - a landing page - uploading the notes you take as a .md file - better UI
+other features that might come will be:
+
+- saving notes in local storage
+- a landing page
+- uploading the notes you take as a .md file
+- better UI
 
 ### Useful resources
 
