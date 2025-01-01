@@ -16,7 +16,7 @@ but the code was written right after grasping the basics of the project **the co
 
 ### Process
 
-Hello hope you're doing well . i started my planning by righting some pseudo code which i find to be helpful for writing clean code good and making sure that my code is **SOLID** and after that i started by building the skeleton of the project AKA where the notes are going to be stored what technology to use for raw text to html conversion ext.
+Hello hope you're doing well . i started my planning by righting some pseudo code which i find to be helpful for writing clean code and making sure that my code is **SOLID** and after that i started by building the skeleton of the project AKA where the notes are going to be stored what technology to use for raw text to html conversion ext.
 
 ### Built with
 
