@@ -12,11 +12,11 @@
 ## About the Project
 
 **this project is inspired from a video made by [Link webDevSimplified](https://www.youtube.com/watch?v=j898RGRw0b4)**
-but the code was writen right after grasping the basics of the project **the code in this project is not a copy nor inspired by the code in the video** as i fully belive that speed runing tutorials is not the answer to growth as a developer
+but the code was written right after grasping the basics of the project **the code in this project is not a copy nor inspired by the code in the video** as i fully believe that speed running tutorials is not the answer to growth as a developer
 
 ### Process
 
-Hello hope you're doing well.i started my planning by righting some pseudo code which i find to be helpfull for writing clean code good and making sure that my code is **SOLID** and after that i started by building the skeleten of the project AKA where the notes are going to be stored what technologie to use for raw text to html convesion ext
+Hello hope you're doing well . i started my planning by righting some pseudo code which i find to be helpful for writing clean code good and making sure that my code is **SOLID** and after that i started by building the skeleton of the project AKA where the notes are going to be stored what technology to use for raw text to html conversion ext.
 
 ### Built with
 
@@ -28,7 +28,7 @@ Hello hope you're doing well.i started my planning by righting some pseudo code 
 
 ### What I learned
 
-i learned everything from common react programing patterns to react reconsiliation and memoisation going through the stugle of building this project realy forced me to learn deeper concepts about react and undrestand how it works under the hood
+i learned everything from common react programing patterns to react reconciliation and memoisation going through the struggle of building this project really forced me to learn deeper concepts about react and understand how it works under the hood
 
 ### Continued development
 
