@@ -13,7 +13,7 @@ function App() {
     "shopping",
   ]);
   const [notes, setNotes] = useLocalStorage("notes", []);
-  const [id, setId] = useState(101);
+  const [id, setId] = useState(1);
   return (
     <BrowserRouter>
       <tagContext.Provider value={{ tagArray, setTagArray }}>
