@@ -97,6 +97,8 @@ nav h1 {
   flex-direction: column;
   border-radius: 5px;
   overflow: hidden;
+  transform-origin: 0% 0%;
+  animation: animate 0.25s ease-in-out;
   z-index: 10;
 }
 .tag-container button {
@@ -294,6 +296,18 @@ nav h1 {
   background-color: #fff;
   padding: 2em 1.5em;
   border-radius: 10px;
+  transform-origin: 0% -50%;
+  animation: animate 0.4s ease-in-out;
+}
+@keyframes animate {
+  0% {
+    scale: 100% 0;
+    opacity: 0;
+  }
+  100% {
+    scale: 100% 100%;
+    opacity: 1;
+  }
 }
 .new-tag-container label {
   font-size: 1.1rem;
