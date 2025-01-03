@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-export type propType = {
+type propType = {
   notes: {
     data: any;
     noteValue: string;

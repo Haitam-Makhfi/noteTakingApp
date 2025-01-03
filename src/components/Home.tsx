@@ -16,30 +16,39 @@ function Home() {
   const [displayNotes, setDisplayNotes] = useState<noteType[]>(notes);
   const [tagValue, setTagValue] = useState([]);
   const [titleValue, setTitleValue] = useState("");
+  // useEffect(() => {
+  //   setDisplayNotes(notes);
+  // }, [notes]);
   useEffect(() => {
-    setDisplayNotes(notes);
-  }, [notes]);
-  useEffect(() => {
-    setDisplayNotes([]);
-    notes.forEach((note: noteType) => {
-      if (titleValue == "" && compareWithTagValue(note.tagValue) == null) {
-        setDisplayNotes((p) => [...p, note]);
-      } else if (
-        note.titleValue == titleValue &&
-        compareWithTagValue(note.tagValue) == null
-      ) {
-        setDisplayNotes((p) => [...p, note]);
-      } else if (titleValue == "" && compareWithTagValue(note.tagValue)) {
-        setDisplayNotes((p) => [...p, note]);
-      } else if (
-        note.titleValue == titleValue &&
-        compareWithTagValue(note.tagValue)
-      ) {
-        setDisplayNotes((p) => [...p, note]);
-      }
-      return null;
-    });
-  }, [titleValue, tagValue]);
+    // setDisplayNotes([]);
+    // notes.forEach((note: noteType) => {
+    //   if (titleValue == "" && compareWithTagValue(note.tagValue) == null) {
+    //     setDisplayNotes((p) => [...p, note]);
+    //   } else if (
+    //     note.titleValue == titleValue &&
+    //     compareWithTagValue(note.tagValue) == null
+    //   ) {
+    //     setDisplayNotes((p) => [...p, note]);
+    //   } else if (titleValue == "" && compareWithTagValue(note.tagValue)) {
+    //     setDisplayNotes((p) => [...p, note]);
+    //   } else if (
+    //     note.titleValue == titleValue &&
+    //     compareWithTagValue(note.tagValue)
+    //   ) {
+    //     setDisplayNotes((p) => [...p, note]);
+    //   }
+    //   return null;
+    // });
+    setDisplayNotes(
+      notes.filter((note: noteType) => {
+        return (
+          (titleValue == "" || titleValue == note.titleValue) &&
+          (tagValue.length == 0 ||
+            tagValue.every((tag) => note.tagValue.some((el) => tag == el)))
+        );
+      })
+    );
+  }, [titleValue, tagValue, notes]);
   function compareWithTagValue(array: string[]) {
     let bool = null;
     tagValue.forEach((el) => {
