@@ -7,7 +7,7 @@ import MarkdownView from "react-showdown";
 export const tagContext = createContext();
 export const notesContext = createContext();
 function App() {
-  const [tagArray, setTagArray] = useState(["work", "personnel", "chopping"]);
+  const [tagArray, setTagArray] = useState(["work", "personnel", "shopping"]);
   const [notes, setNotes] = useState([
     {
       noteValue: "example",

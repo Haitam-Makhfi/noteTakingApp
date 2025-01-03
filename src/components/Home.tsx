@@ -17,6 +17,9 @@ function Home() {
   const [tagValue, setTagValue] = useState([]);
   const [titleValue, setTitleValue] = useState("");
   useEffect(() => {
+    setDisplayNotes(notes);
+  }, [notes]);
+  useEffect(() => {
     setDisplayNotes([]);
     notes.forEach((note: noteType) => {
       if (titleValue == "" && compareWithTagValue(note.tagValue) == null) {

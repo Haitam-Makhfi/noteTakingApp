@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { tagContext } from "../App";
+import { notesContext, tagContext } from "../App";
 import Modal from "./Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -14,6 +14,7 @@ export default function Tooltip({
   ...props
 }: propTypes) {
   const { tagArray, setTagArray } = useContext(tagContext);
+  const { setNotes } = useContext(notesContext);
   const [openModal, setOpenModal] = useState(false);
   function handleTagClick(tag: string) {
     if (!addtag) {
@@ -34,6 +35,21 @@ export default function Tooltip({
               onClick={(e) => {
                 e.stopPropagation();
                 setTagArray((ta: string[]) => ta.filter((el) => el !== tag));
+                setNotes(
+                  (
+                    pn: {
+                      data: any;
+                      noteValue: string;
+                      titleValue: string;
+                      tagValue: string[];
+                      id: number;
+                    }[]
+                  ) =>
+                    pn.map((note) => ({
+                      ...note,
+                      tagValue: note.tagValue.filter((el) => el != tag),
+                    }))
+                );
               }}
             />
           )}

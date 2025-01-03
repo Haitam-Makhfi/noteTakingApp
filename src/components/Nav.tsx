@@ -9,6 +9,11 @@ export default function Nav() {
     <nav>
       <h1 onClick={() => navigate("/")}>Clipy</h1>
       <div className="nav-btns">
+        <div className="nav-btn createBtn">
+          <Link to={"/createNote"} className="Link">
+            Create
+          </Link>
+        </div>
         <div className="edit-btn-container">
           <div
             className="nav-btn editBtn"
@@ -19,11 +24,6 @@ export default function Nav() {
             Edit Tags
           </div>
           {tooltipactive && <Tooltip addtag={true} style={{ zIndex: "11" }} />}
-        </div>
-        <div className="nav-btn createBtn">
-          <Link to={"/createNote"} className="Link">
-            Creat
-          </Link>
         </div>
       </div>
     </nav>
